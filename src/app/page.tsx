@@ -1,102 +1,406 @@
-import Image from "next/image";
+// homepage
+import BrainModel from "../components/BrainModel";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+    <div className="min-h-screen bg-[#0b0b0c] text-white">
+      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/30 border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="h-7 w-7 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-indigo-500" />
+            <span className="text-sm font-semibold tracking-wide">
+              Ultra AI
+            </span>
+          </div>
+          <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
+            <a href="#value" className="hover:text-white">
+              Outcomes
+            </a>
+            <a href="#how" className="hover:text-white">
+              How it works
+            </a>
+            <a href="#centers" className="hover:text-white">
+              For centers
+            </a>
+            <a href="#oems" className="hover:text-white">
+              For OEMs
+            </a>
+            <a href="#company" className="hover:text-white">
+              Company
+            </a>
+            <a href="#contact" className="hover:text-white">
+              Contact
+            </a>
+          </nav>
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#demo"
+            className="inline-flex items-center rounded-full bg-white text-black text-sm font-medium px-4 py-2 hover:bg-white/90"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+            Book a Demo
           </a>
         </div>
+      </header>
+
+      <main className="relative isolate">
+        {/* Glow background */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[600px] w-[1200px] bg-[radial-gradient(closest-side,rgba(56,189,248,.25),transparent_70%)]"
+        />
+
+        <section className="pt-36 md:pt-44">
+          <div className="mx-auto max-w-7xl px-6">
+            {/* Mobile 3D hero visual: full-bleed short background with overlay */}
+            <div className="relative md:hidden -mx-6 mb-6">
+              <div className="h-64 w-full overflow-hidden">
+                <div className="absolute inset-0">
+                  <BrainModel />
+                </div>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              </div>
+            </div>
+
+            <div className="grid items-center gap-10 md:grid-cols-2">
+              <div className="space-y-6">
+                <p className="inline-flex items-center text-xs font-medium uppercase tracking-wider text-white/70">
+                  Radiology 2.0
+                </p>
+                <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
+                  The AI‑native operating system for radiology
+                </h1>
+                <p className="text-white/70 max-w-xl">
+                  UltraRad + UltraViewer automate radiologist tasks end‑to‑end —
+                  assisting segmentation, QC, and report drafting to reduce time
+                  per case and expand capacity.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="#demo"
+                    className="inline-flex items-center justify-center rounded-full bg-white text-black text-sm font-medium px-5 py-3 hover:bg-white/90"
+                  >
+                    Book a Demo
+                  </a>
+                  <a
+                    href="#value"
+                    className="inline-flex items-center justify-center rounded-full border border-white/20 text-white text-sm font-medium px-5 py-3 hover:bg-white/5"
+                  >
+                    See outcomes
+                  </a>
+                </div>
+              </div>
+
+              <div className="relative aspect-[4/3] w-full rounded-2xl ring-1 ring-white/10 overflow-hidden hidden md:block">
+                <div className="absolute inset-0 pointer-events-none rounded-2xl bg-gradient-to-tr from-cyan-400/10 via-fuchsia-500/10 to-indigo-500/10" />
+                <div className="absolute inset-0">
+                  <BrainModel />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Outcomes */}
+        <section id="value" className="py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="flex items-end justify-between gap-6 mb-8">
+              <h2 className="text-xl font-semibold">Outcomes</h2>
+              <a href="#roi" className="text-sm text-white/70 hover:text-white">
+                Estimate your ROI →
+              </a>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  stat: "−85%",
+                  label: "Time per case",
+                  note: "Target reduction with assistive automation",
+                },
+                {
+                  stat: "+20%",
+                  label: "Productivity",
+                  note: "Throughput uplift in modeled scenarios",
+                },
+                {
+                  stat: "4×",
+                  label: "ROI for centers",
+                  note: "Based on conservative assumptions",
+                },
+                {
+                  stat: "15%",
+                  label: "Fewer errors",
+                  note: "Aiming to reduce inconsistencies",
+                },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6"
+                >
+                  <div className="text-3xl font-semibold">{item.stat}</div>
+                  <div className="text-white/70 text-sm mt-1">{item.label}</div>
+                  <div className="text-white/50 text-xs mt-2">{item.note}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How it works */}
+        <section id="how" className="py-24 border-t border-white/10">
+          <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-3">
+            <div className="md:col-span-1">
+              <h2 className="text-xl font-semibold mb-3">How it works</h2>
+              <p className="text-white/70 text-sm">
+                UltraRad (foundation model) and UltraViewer (next‑gen viewer)
+                combine into Radiology 2.0 — an assistive, agentic workflow
+                layer that automates radiologist tasks end‑to‑end.
+              </p>
+            </div>
+            <div className="md:col-span-2 grid gap-6">
+              {[
+                {
+                  title: "UltraRad — Radiology Foundation Model",
+                  desc: "Assists anatomy segmentation, on‑click pathology segmentation, image QC, and structured report drafting. Built for explainability and modular indications.",
+                },
+                {
+                  title: "UltraViewer — Next‑gen AI Image Viewer",
+                  desc: "AR‑ready viewing with embedded AI assistance for analysis, summarization, and PACS/EHR integrity.",
+                },
+                {
+                  title: "Radiology 2.0 — AI‑native OS",
+                  desc: "Combines UltraRad + UltraViewer into an agentic layer to streamline intake → reading → reporting.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6"
+                >
+                  <h3 className="font-medium mb-2">{item.title}</h3>
+                  <p className="text-white/70 text-sm">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* For centers */}
+        <section id="centers" className="py-24">
+          <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-2">
+            <div>
+              <h2 className="text-xl font-semibold mb-3">
+                For independent and multi‑branch centers
+              </h2>
+              <ul className="text-white/70 text-sm space-y-2 list-disc pl-5">
+                <li>
+                  Deploy light: cloud or hybrid, fast onboarding, minimal IT
+                  lift
+                </li>
+                <li>
+                  Works with your stack: standards‑based DICOM/PACS/EHR
+                  connectors
+                </li>
+                <li>
+                  Security: HIPAA‑aligned controls, audit trails, role‑based
+                  access
+                </li>
+                <li>
+                  Flexible commercial model: subscription and pay‑as‑you‑go
+                </li>
+              </ul>
+            </div>
+            <div
+              id="roi"
+              className="rounded-2xl border border-white/10 bg-white/[0.02] p-6"
+            >
+              <h3 className="font-medium mb-2">ROI snapshot</h3>
+              <p className="text-white/70 text-sm">
+                Assuming $1,000/exam and +20% productivity, a single site may
+                unlock meaningful incremental revenue. Enter your volume to
+                estimate.
+              </p>
+              <form className="mt-4 grid sm:grid-cols-3 gap-3">
+                <div className="sm:col-span-2">
+                  <input
+                    aria-label="Monthly exams"
+                    placeholder="Monthly exams"
+                    className="w-full rounded-lg bg-white/[0.06] border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-white/20"
+                  />
+                </div>
+                <button
+                  type="button"
+                  className="rounded-lg bg-white text-black text-sm font-medium px-4 py-2 hover:bg-white/90"
+                >
+                  Estimate
+                </button>
+              </form>
+              <div className="mt-3 text-xs text-white/50">
+                Illustrative only; results vary by case mix and configuration.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* For OEMs */}
+        <section id="oems" className="py-24 border-t border-white/10">
+          <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-2">
+            <div>
+              <h2 className="text-xl font-semibold mb-3">
+                For OEMs and PACS vendors
+              </h2>
+              <ul className="text-white/70 text-sm space-y-2 list-disc pl-5">
+                <li>
+                  IP/OEM licensing: integrate UltraRad capabilities or embed
+                  UltraViewer features
+                </li>
+                <li>
+                  SDK & APIs: modular components to accelerate your roadmap
+                </li>
+                <li>
+                  Co‑marketing: joint solutions for enterprise deployments
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+              <h3 className="font-medium mb-2">Integration readiness</h3>
+              <p className="text-white/70 text-sm">
+                Standards‑based interfaces and reference implementations to
+                shorten time‑to‑value. Talk to partnerships for details.
+              </p>
+              <a
+                href="#contact"
+                className="inline-block mt-4 rounded-full border border-white/20 text-white text-sm font-medium px-5 py-3 hover:bg-white/5"
+              >
+                Contact partnerships
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Regulatory */}
+        <section id="regulatory" className="py-24">
+          <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-2">
+            <div>
+              <h2 className="text-xl font-semibold mb-3">
+                Built for FDA pathways
+              </h2>
+              <p className="text-white/70 text-sm">
+                Limited intended uses focused on radiologist tasks (image QC,
+                detection assistance, report drafting assistance). Explainable
+                outputs and proprietary data generation support scalable
+                validation. Modular strategy and targeted submissions (Neuro →
+                Pediatrics).
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-white/60 text-xs">
+              Clinical features are made available in accordance with local
+              regulatory status and intended use. Certain capabilities are
+              pending regulatory clearance.
+            </div>
+          </div>
+        </section>
+
+        <section id="company" className="py-24 border-t border-white/10">
+          <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-2">
+            <div>
+              <h2 className="text-xl font-semibold mb-4">Company</h2>
+              <p className="text-white/70">
+                Ultra AI is led by a radiologist and an AI engineer. We build an
+                AI‑native operating system for radiology with a capital‑light
+                model, strong ecosystem partnerships, and a design aligned with
+                regulatory pathways.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                ["2024", "Incorporated"],
+                ["5", "Patents filed"],
+                ["HIPAA", "Aligned"],
+                ["SOC 2", "In progress"],
+              ].map(([stat, label]) => (
+                <div
+                  key={label}
+                  className="rounded-xl bg-white/[0.03] border border-white/10 p-4"
+                >
+                  <div className="text-2xl font-semibold">{stat}</div>
+                  <div className="text-white/60 text-xs mt-1">{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="py-24 border-t border-white/10">
+          <div className="mx-auto max-w-3xl px-6">
+            <h2 className="text-xl font-semibold mb-6">Contact</h2>
+            <form action="/api/contact" method="post" className="space-y-4">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    className="block text-xs text-white/70 mb-1"
+                    htmlFor="name"
+                  >
+                    Name
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full rounded-lg bg-white/[0.06] border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-white/20"
+                  />
+                </div>
+                <div>
+                  <label
+                    className="block text-xs text-white/70 mb-1"
+                    htmlFor="email"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    className="w-full rounded-lg bg-white/[0.06] border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-white/20"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  className="block text-xs text-white/70 mb-1"
+                  htmlFor="message"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  className="w-full rounded-lg bg-white/[0.06] border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-white/20"
+                />
+              </div>
+              <button
+                type="submit"
+                className="inline-flex items-center rounded-full bg-white text-black text-sm font-medium px-5 py-3 hover:bg-white/90"
+              >
+                Send message
+              </button>
+            </form>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="h-6 w-6 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-indigo-500" />
+            <span className="text-sm font-semibold tracking-wide">
+              Ultra AI
+            </span>
+          </div>
+          <p className="text-xs text-white/60">
+            © 2024 Ultra AI ® All Rights Reserved
+          </p>
+        </div>
       </footer>
     </div>
   );
