@@ -7,6 +7,7 @@ export default function Home() {
       name: "Reza Rahmanzadeh, MD, PhD",
       role: "CEO/CTO",
       linkedin: "",
+      image: "/reza.jpeg",
     },
     {
       name: "Nima Akhlaghi, PhD",
@@ -36,10 +37,7 @@ export default function Home() {
   ];
 
   const getInitials = (fullName: string) => {
-    const parts = fullName
-      .replace(/[,]/g, " ")
-      .split(/\s+/)
-      .filter(Boolean);
+    const parts = fullName.replace(/[,]/g, " ").split(/\s+/).filter(Boolean);
     const initials = parts
       .filter((p) => /[A-Za-z]/.test(p))
       .slice(0, 3)
@@ -352,7 +350,10 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6">
             <div className="flex items-end justify-between gap-6 mb-8">
               <h2 className="text-xl font-semibold">Team</h2>
-              <a href="#company" className="text-sm text-white/70 hover:text-white">
+              <a
+                href="#company"
+                className="text-sm text-white/70 hover:text-white"
+              >
                 About the company →
               </a>
             </div>
@@ -362,9 +363,19 @@ export default function Home() {
                   key={member.name}
                   className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center gap-4"
                 >
-                  <div className="h-16 w-16 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-indigo-500 flex items-center justify-center text-black font-semibold shrink-0">
-                    <span className="text-lg">{getInitials(member.name)}</span>
-                  </div>
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="h-16 w-16 rounded-full object-cover ring-1 ring-white/10 shrink-0"
+                    />
+                  ) : (
+                    <div className="h-16 w-16 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-indigo-500 flex items-center justify-center text-black font-semibold shrink-0">
+                      <span className="text-lg">
+                        {getInitials(member.name)}
+                      </span>
+                    </div>
+                  )}
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
                       <p className="font-medium truncate">{member.name}</p>
