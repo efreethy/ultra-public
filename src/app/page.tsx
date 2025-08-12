@@ -2,6 +2,52 @@
 import BrainModel from "../components/BrainModel";
 
 export default function Home() {
+  const teamMembers = [
+    {
+      name: "Reza Rahmanzadeh, MD, PhD",
+      role: "CEO/CTO",
+      linkedin: "",
+    },
+    {
+      name: "Nima Akhlaghi, PhD",
+      role: "Research, Compliance & Regulatory Lead",
+      linkedin: "",
+    },
+    {
+      name: "Hedi Razavi, PhD",
+      role: "Operations Lead",
+      linkedin: "",
+    },
+    {
+      name: "Amir Ameri",
+      role: "Business Development Lead",
+      linkedin: "",
+    },
+    {
+      name: "Amir Tehrani",
+      role: "Senior Executive Advisor",
+      linkedin: "",
+    },
+    {
+      name: "Naz Moini",
+      role: "Regulatory Advisor",
+      linkedin: "",
+    },
+  ];
+
+  const getInitials = (fullName: string) => {
+    const parts = fullName
+      .replace(/[,]/g, " ")
+      .split(/\s+/)
+      .filter(Boolean);
+    const initials = parts
+      .filter((p) => /[A-Za-z]/.test(p))
+      .slice(0, 3)
+      .map((p) => p[0]?.toUpperCase() ?? "")
+      .join("")
+      .slice(0, 3);
+    return initials || "U";
+  };
   return (
     <div className="min-h-screen bg-[#0b0b0c] text-white">
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/30 border-b border-white/10">
@@ -24,6 +70,9 @@ export default function Home() {
             </a>
             <a href="#oems" className="hover:text-white">
               For OEMs
+            </a>
+            <a href="#team" className="hover:text-white">
+              Team
             </a>
             <a href="#company" className="hover:text-white">
               Company
@@ -294,6 +343,47 @@ export default function Home() {
               Clinical features are made available in accordance with local
               regulatory status and intended use. Certain capabilities are
               pending regulatory clearance.
+            </div>
+          </div>
+        </section>
+
+        {/* Team */}
+        <section id="team" className="py-24 border-t border-white/10">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="flex items-end justify-between gap-6 mb-8">
+              <h2 className="text-xl font-semibold">Team</h2>
+              <a href="#company" className="text-sm text-white/70 hover:text-white">
+                About the company →
+              </a>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {teamMembers.map((member) => (
+                <div
+                  key={member.name}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center gap-4"
+                >
+                  <div className="h-16 w-16 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-indigo-500 flex items-center justify-center text-black font-semibold shrink-0">
+                    <span className="text-lg">{getInitials(member.name)}</span>
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2">
+                      <p className="font-medium truncate">{member.name}</p>
+                      {member.linkedin && (
+                        <a
+                          href={member.linkedin}
+                          aria-label={`${member.name} on LinkedIn`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center h-5 w-5 rounded bg-[#0A66C2] text-white text-[10px] font-bold"
+                        >
+                          in
+                        </a>
+                      )}
+                    </div>
+                    <p className="text-white/70 text-sm">{member.role}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
