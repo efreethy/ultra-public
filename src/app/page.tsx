@@ -1,5 +1,6 @@
 // homepage
 import BrainModel from "../components/BrainModel";
+import Marquee from "react-fast-marquee";
 
 export default function Home() {
   const teamMembers = [
@@ -51,6 +52,17 @@ export default function Home() {
       .slice(0, 3);
     return initials || "U";
   };
+  // Single marquee: 9 logo filenames stored in `public/`
+  const partnerLogos = [
+    "stanford.svg",
+    "berkeley.svg",
+    "insel.png",
+    "abbot.svg",
+    "deerfield.png",
+    "st-jude.svg",
+    "stryker.png",
+  ];
+
   return (
     <div className="min-h-screen bg-[#0b0b0c] text-white">
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/30 border-b border-white/10">
@@ -350,60 +362,40 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Partner logos (marquee) */}
+        {/* Partner logos (react-fast-marquee) */}
         <section className="py-16 border-t border-white/10">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="text-white/60 text-xs mb-4">Trusted by</div>
-          </div>
+          <div className="mx-auto max-w-7xl px-6"></div>
           <div className="relative overflow-hidden">
-            {/* gradient fade edges */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0b0b0c] to-transparent" />
+            {/* light background wash behind the marquee */}
+            <div aria-hidden className="absolute inset-0 -z-10" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0b0b0c] to-transparent" />
-            <div className="py-6">
-              {/* Top row: left to right */}
-              <div className="whitespace-nowrap">
-                <div className="marquee-track marquee-animate-left">
-                  {["next.svg", "globe.svg", "window.svg", "file.svg", "vercel.svg"].map((src) => (
-                    <img
-                      key={`top-${src}`}
-                      src={`/${src}`}
-                      alt={src}
-                      className="h-8 opacity-80 hover:opacity-100 transition-opacity"
-                    />
-                  ))}
-                  {/* duplicate for seamless loop */}
-                  {["next.svg", "globe.svg", "window.svg", "file.svg", "vercel.svg"].map((src) => (
-                    <img
-                      key={`top-dup-${src}`}
-                      src={`/${src}`}
-                      alt={src}
-                      className="h-8 opacity-80 hover:opacity-100 transition-opacity"
-                    />
-                  ))}
-                </div>
-              </div>
-              {/* Bottom row: right to left */}
-              <div className="mt-6 whitespace-nowrap">
-                <div className="marquee-track marquee-animate-right">
-                  {["vercel.svg", "file.svg", "window.svg", "globe.svg", "next.svg"].map((src) => (
-                    <img
-                      key={`bottom-${src}`}
-                      src={`/${src}`}
-                      alt={src}
-                      className="h-8 opacity-80 hover:opacity-100 transition-opacity"
-                    />
-                  ))}
-                  {["vercel.svg", "file.svg", "window.svg", "globe.svg", "next.svg"].map((src) => (
-                    <img
-                      key={`bottom-dup-${src}`}
-                      src={`/${src}`}
-                      alt={src}
-                      className="h-8 opacity-80 hover:opacity-100 transition-opacity"
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
+            <Marquee
+              direction="left"
+              speed={28}
+              pauseOnHover
+              gradient
+              gradientColor="rgba(11,11,12,1)"
+              gradientWidth={80}
+              className="py-6"
+            >
+              {partnerLogos.map((src, idx) => {
+                // Avoid double-gap at loop seam: no left-margin except the first
+                const marginClass = idx === 0 ? "mr-20" : "mr-20";
+                const isEmphasized =
+                  src === "insel.png" || src === "stryker.png";
+                const sizeClass = isEmphasized
+                  ? "h-[62px] md:h-[72px]"
+                  : "h-10 md:h-12";
+                return (
+                  <img
+                    key={`rfm-${idx}-${src}`}
+                    src={`/${src}`}
+                    alt={src}
+                    className={`${marginClass} ${sizeClass} w-auto object-contain opacity-80 hover:opacity-100 transition-opacity align-middle`}
+                  />
+                );
+              })}
+            </Marquee>
           </div>
         </section>
 
