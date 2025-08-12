@@ -1,6 +1,7 @@
 // homepage
 import BrainModel from "../components/BrainModel";
 import Marquee from "react-fast-marquee";
+import Image from "next/image";
 
 export default function Home() {
   const teamMembers = [
@@ -379,20 +380,37 @@ export default function Home() {
               className="py-6"
             >
               {partnerLogos.map((src, idx) => {
-                // Avoid double-gap at loop seam: no left-margin except the first
+                // Avoid double-gap at loop seam: use consistent right margin
                 const marginClass = idx === 0 ? "mr-20" : "mr-20";
                 const isEmphasized =
                   src === "insel.png" || src === "stryker.png";
-                const sizeClass = isEmphasized
+
+                // Fixed-height containers with proportional widths
+                const heightClass = isEmphasized
                   ? "h-[62px] md:h-[72px]"
                   : "h-10 md:h-12";
+                const widthClass = isEmphasized
+                  ? "w-[208px] md:w-[260px]"
+                  : "w-[160px] md:w-[200px]";
+
+                const sizesAttr = isEmphasized
+                  ? "(min-width: 768px) 260px, 208px"
+                  : "(min-width: 768px) 200px, 160px";
+
                 return (
-                  <img
+                  <div
                     key={`rfm-${idx}-${src}`}
-                    src={`/${src}`}
-                    alt={src}
-                    className={`${marginClass} ${sizeClass} w-auto object-contain opacity-80 hover:opacity-100 transition-opacity align-middle`}
-                  />
+                    className={`${marginClass} ${heightClass} ${widthClass} relative opacity-80 hover:opacity-100 transition-opacity align-middle`}
+                  >
+                    <Image
+                      src={`/${src}`}
+                      alt={src}
+                      fill
+                      sizes={sizesAttr}
+                      className="object-contain"
+                      priority={false}
+                    />
+                  </div>
                 );
               })}
             </Marquee>
@@ -418,11 +436,16 @@ export default function Home() {
                   className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center gap-4"
                 >
                   {member.image ? (
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="h-16 w-16 rounded-full object-cover ring-1 ring-white/10 shrink-0"
-                    />
+                    <div className="h-16 w-16 relative shrink-0">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        sizes="64px"
+                        className="rounded-full object-cover ring-1 ring-white/10"
+                        priority={false}
+                      />
+                    </div>
                   ) : (
                     <div className="h-16 w-16 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-indigo-500 flex items-center justify-center text-black font-semibold shrink-0">
                       <span className="text-lg">
