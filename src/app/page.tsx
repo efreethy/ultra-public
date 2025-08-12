@@ -13,26 +13,31 @@ export default function Home() {
       name: "Nima Akhlaghi, PhD",
       role: "Research, Compliance & Regulatory Lead",
       linkedin: "",
+      image: "/nima.jpeg",
     },
     {
       name: "Hedi Razavi, PhD",
       role: "Operations Lead",
       linkedin: "",
+      image: "/hedi.png",
     },
     {
       name: "Amir Ameri",
       role: "Business Development Lead",
       linkedin: "",
+      image: "/amir.jpeg",
     },
     {
       name: "Amir Tehrani",
       role: "Senior Executive Advisor",
       linkedin: "",
+      image: "/amir-tehrani.jpeg",
     },
     {
       name: "Naz Moini",
       role: "Regulatory Advisor",
       linkedin: "",
+      image: "/naz.jpeg",
     },
   ];
 
