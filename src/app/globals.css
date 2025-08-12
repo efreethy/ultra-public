@@ -24,3 +24,28 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* simple marquee animations for logo belts */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 3rem;
+}
+
+.marquee-animate-left {
+  animation: marquee-left 30s linear infinite;
+}
+
+.marquee-animate-right {
+  animation: marquee-right 30s linear infinite;
+}

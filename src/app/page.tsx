@@ -350,6 +350,63 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Partner logos (marquee) */}
+        <section className="py-16 border-t border-white/10">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="text-white/60 text-xs mb-4">Trusted by</div>
+          </div>
+          <div className="relative overflow-hidden">
+            {/* gradient fade edges */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0b0b0c] to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0b0b0c] to-transparent" />
+            <div className="py-6">
+              {/* Top row: left to right */}
+              <div className="whitespace-nowrap">
+                <div className="marquee-track marquee-animate-left">
+                  {["next.svg", "globe.svg", "window.svg", "file.svg", "vercel.svg"].map((src) => (
+                    <img
+                      key={`top-${src}`}
+                      src={`/${src}`}
+                      alt={src}
+                      className="h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                  ))}
+                  {/* duplicate for seamless loop */}
+                  {["next.svg", "globe.svg", "window.svg", "file.svg", "vercel.svg"].map((src) => (
+                    <img
+                      key={`top-dup-${src}`}
+                      src={`/${src}`}
+                      alt={src}
+                      className="h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                  ))}
+                </div>
+              </div>
+              {/* Bottom row: right to left */}
+              <div className="mt-6 whitespace-nowrap">
+                <div className="marquee-track marquee-animate-right">
+                  {["vercel.svg", "file.svg", "window.svg", "globe.svg", "next.svg"].map((src) => (
+                    <img
+                      key={`bottom-${src}`}
+                      src={`/${src}`}
+                      alt={src}
+                      className="h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                  ))}
+                  {["vercel.svg", "file.svg", "window.svg", "globe.svg", "next.svg"].map((src) => (
+                    <img
+                      key={`bottom-dup-${src}`}
+                      src={`/${src}`}
+                      alt={src}
+                      className="h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Team */}
         <section id="team" className="py-24 border-t border-white/10">
           <div className="mx-auto max-w-7xl px-6">
