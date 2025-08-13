@@ -1,14 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import BrainModel from "./visuals/BrainModel";
 import VantaCells from "./visuals/VantaCells";
 import VantaTrunk from "./visuals/VantaTrunk";
 import VantaFog from "./visuals/VantaFog";
 import VantaClouds from "./visuals/VantaClouds";
 
 type VisualMode = {
-  key: "brain" | "cells" | "trunk" | "fog" | "clouds";
+  key: "cells" | "trunk" | "fog" | "clouds";
   Component: React.ComponentType;
 };
 

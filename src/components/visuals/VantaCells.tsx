@@ -2,15 +2,16 @@
 
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
+import type { VantaEffect, VantaGlobal, WindowWithVanta } from "@/types/vanta";
 
 export default function VantaCells(): React.JSX.Element {
   const vantaRef = useRef<HTMLDivElement | null>(null);
-  const effectRef = useRef<any>(null);
+  const effectRef = useRef<VantaEffect | null>(null);
 
   useEffect(() => {
-    const winAny = window as any;
-    if (!winAny.THREE) {
-      winAny.THREE = THREE;
+    const w = window as WindowWithVanta;
+    if (!w.THREE) {
+      w.THREE = THREE;
     }
 
     const loadScript = (src: string) =>
@@ -31,7 +32,8 @@ export default function VantaCells(): React.JSX.Element {
     )
       .then(() => {
         if (canceled || !vantaRef.current) return;
-        const VANTA = (window as any).VANTA;
+        const VANTA: VantaGlobal | undefined = (window as WindowWithVanta)
+          .VANTA;
         if (!VANTA?.CELLS) return;
         effectRef.current = VANTA.CELLS({
           el: vantaRef.current,
@@ -58,5 +60,11 @@ export default function VantaCells(): React.JSX.Element {
     };
   }, []);
 
-  return <div ref={vantaRef} className="absolute inset-0" />;
+  return (
+    <div
+      ref={vantaRef}
+      className="absolute inset-0 pointer-events-auto"
+      style={{ touchAction: "none" }}
+    />
+  );
 }

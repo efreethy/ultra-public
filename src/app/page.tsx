@@ -95,7 +95,7 @@ export default function Home() {
               Team
             </a>
             <a href="#company" className="hover:text-white">
-              Company
+              Leadership
             </a>
             <a href="#contact" className="hover:text-white">
               Contact

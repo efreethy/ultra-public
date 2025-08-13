@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import type { VantaEffect, VantaGlobal, WindowWithVanta } from "@/types/vanta";
 
 export default function VantaTrunk(): React.JSX.Element {
   const vantaRef = useRef<HTMLDivElement | null>(null);
-  const effectRef = useRef<any>(null);
+  const effectRef = useRef<VantaEffect | null>(null);
 
   useEffect(() => {
     const loadScript = (src: string) =>
@@ -30,7 +31,8 @@ export default function VantaTrunk(): React.JSX.Element {
       )
       .then(() => {
         if (canceled || !vantaRef.current) return;
-        const VANTA = (window as any).VANTA;
+        const VANTA: VantaGlobal | undefined = (window as WindowWithVanta)
+          .VANTA;
         if (!VANTA?.TRUNK) return;
         effectRef.current = VANTA.TRUNK({
           el: vantaRef.current,
@@ -58,5 +60,11 @@ export default function VantaTrunk(): React.JSX.Element {
     };
   }, []);
 
-  return <div ref={vantaRef} className="absolute inset-0" />;
+  return (
+    <div
+      ref={vantaRef}
+      className="absolute inset-0 pointer-events-auto"
+      style={{ touchAction: "none" }}
+    />
+  );
 }
