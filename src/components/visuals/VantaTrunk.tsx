@@ -1,18 +1,12 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import * as THREE from "three";
 
-export default function VantaCells(): React.JSX.Element {
+export default function VantaTrunk(): React.JSX.Element {
   const vantaRef = useRef<HTMLDivElement | null>(null);
   const effectRef = useRef<any>(null);
 
   useEffect(() => {
-    const winAny = window as any;
-    if (!winAny.THREE) {
-      winAny.THREE = THREE;
-    }
-
     const loadScript = (src: string) =>
       new Promise<void>((resolve, reject) => {
         const existing = document.querySelector(`script[src="${src}"]`);
@@ -26,25 +20,31 @@ export default function VantaCells(): React.JSX.Element {
       });
 
     let canceled = false;
-    loadScript(
-      "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"
-    )
+
+    // TRUNK uses p5
+    loadScript("https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js")
+      .then(() =>
+        loadScript(
+          "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.trunk.min.js"
+        )
+      )
       .then(() => {
         if (canceled || !vantaRef.current) return;
         const VANTA = (window as any).VANTA;
-        if (!VANTA?.CELLS) return;
-        effectRef.current = VANTA.CELLS({
+        if (!VANTA?.TRUNK) return;
+        effectRef.current = VANTA.TRUNK({
           el: vantaRef.current,
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
-          scale: 1.0,
-          color1: 0x7d827d,
-          color2: 0x7735f2,
-          size: 1.5,
-          speed: 1,
+          minHeight: 100.0,
+          minWidth: 100.0,
+          scale: 5,
+          scaleMobile: 5,
+          backgroundColor: 0x222426,
+          color: 0x5d4598,
+          spacing: 0.0,
+          chaos: 2.0,
         });
       })
       .catch(() => {});

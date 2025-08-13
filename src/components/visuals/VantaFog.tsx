@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-export default function VantaCells(): React.JSX.Element {
+export default function VantaFog(): React.JSX.Element {
   const vantaRef = useRef<HTMLDivElement | null>(null);
   const effectRef = useRef<any>(null);
 
@@ -26,25 +26,27 @@ export default function VantaCells(): React.JSX.Element {
       });
 
     let canceled = false;
+
     loadScript(
-      "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"
+      "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"
     )
       .then(() => {
         if (canceled || !vantaRef.current) return;
         const VANTA = (window as any).VANTA;
-        if (!VANTA?.CELLS) return;
-        effectRef.current = VANTA.CELLS({
+        if (!VANTA?.FOG) return;
+        effectRef.current = VANTA.FOG({
           el: vantaRef.current,
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
           minHeight: 200.0,
           minWidth: 200.0,
-          scale: 1.0,
-          color1: 0x7d827d,
-          color2: 0x7735f2,
-          size: 1.5,
-          speed: 1,
+          highlightColor: 0x3cff,
+          midtoneColor: 0xa400ff,
+          lowlightColor: 0xffc200,
+          baseColor: 0xc8caf2,
+          blurFactor: 0.53,
+          speed: 1.9,
         });
       })
       .catch(() => {});

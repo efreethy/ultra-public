@@ -117,7 +117,7 @@ export default function Home() {
           className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[600px] w-[1200px] bg-[radial-gradient(closest-side,rgba(56,189,248,.25),transparent_70%)]"
         />
 
-        <section className="pt-36 md:pt-44">
+        <section className="pt-16 md:pt-44">
           <div className="mx-auto max-w-7xl px-6">
             {/* Mobile 3D hero visual: full-bleed short background with overlay */}
             <div className="relative md:hidden -mx-6 mb-6">

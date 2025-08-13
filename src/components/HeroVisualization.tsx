@@ -1,23 +1,35 @@
 "use client";
 
-import React, { Suspense, useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import BrainModel from "./visuals/BrainModel";
 import VantaCells from "./visuals/VantaCells";
+import VantaTrunk from "./visuals/VantaTrunk";
+import VantaFog from "./visuals/VantaFog";
+import VantaClouds from "./visuals/VantaClouds";
+
+type VisualMode = {
+  key: "brain" | "cells" | "trunk" | "fog" | "clouds";
+  Component: React.ComponentType;
+};
+
+const visualModes: readonly VisualMode[] = [
+  { key: "cells", Component: VantaCells },
+  { key: "trunk", Component: VantaTrunk },
+  { key: "fog", Component: VantaFog },
+  { key: "clouds", Component: VantaClouds },
+] as const;
 
 export default function HeroVisualization(): React.JSX.Element {
-  const modes = ["brain", "cells"] as const;
   const [modeIndex, setModeIndex] = useState(0);
-  const currentMode = modes[modeIndex];
-
-  const vantaRef = useRef<HTMLDivElement | null>(null);
+  const ModeComponent = visualModes[modeIndex].Component;
 
   const goPrev = () =>
-    setModeIndex((i) => (i - 1 + modes.length) % modes.length);
-  const goNext = () => setModeIndex((i) => (i + 1) % modes.length);
+    setModeIndex((i) => (i - 1 + visualModes.length) % visualModes.length);
+  const goNext = () => setModeIndex((i) => (i + 1) % visualModes.length);
 
   return (
     <div className="h-full w-full relative">
-      {currentMode === "brain" ? <BrainModel /> : <VantaCells />}
+      <ModeComponent />
 
       <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-2 md:px-3">
         <button

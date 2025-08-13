@@ -11,7 +11,7 @@ function BrainScene(): React.JSX.Element {
 
 useGLTF.preload("/brain_model_from_mri_simplified.glb");
 
-export default function BrainModeThree(): React.JSX.Element {
+export default function BrainModel(): React.JSX.Element {
   return (
     <Suspense
       fallback={
