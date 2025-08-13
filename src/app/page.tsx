@@ -2,6 +2,7 @@
 import HeroVisualization from "../components/HeroVisualization";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
+import { Waypoints, Monitor, AppWindowMac } from "lucide-react";
 
 export default function Home() {
   const teamMembers = [
@@ -79,31 +80,19 @@ export default function Home() {
             />
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
-            <a href="#value" className="hover:text-white">
-              Outcomes
-            </a>
             <a href="#how" className="hover:text-white">
-              How it works
-            </a>
-            <a href="#centers" className="hover:text-white">
-              For centers
-            </a>
-            <a href="#oems" className="hover:text-white">
-              For OEMs
-            </a>
-            <a href="#team" className="hover:text-white">
-              Team
+              Solutions
             </a>
             <a href="#company" className="hover:text-white">
-              Leadership
+              People
             </a>
-            <a href="#contact" className="hover:text-white">
-              Contact
+            <a href="#news" className="hover:text-white">
+              News
             </a>
           </nav>
           <a
             href="#contact"
-            className="inline-flex items-center rounded-full bg-black text-white text-sm font-medium px-4 py-2 border border-purple-500/60 shadow-[0_0_20px_rgba(168,85,247,0.35)] hover:shadow-[0_0_28px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
+            className="inline-flex items-center rounded-full bg-black text-white text-base font-medium px-6 py-3 border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_36px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
           >
             Contact Us
           </a>
@@ -116,6 +105,21 @@ export default function Home() {
           aria-hidden
           className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[600px] w-[1200px] bg-[radial-gradient(closest-side,rgba(56,189,248,.25),transparent_70%)]"
         />
+        {/* Hidden SVG defs for gradient-stroked icons */}
+        <svg aria-hidden className="absolute h-0 w-0">
+          <defs>
+            <linearGradient
+              id="ultraIconGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" stopColor="#3B0764" />
+              <stop offset="100%" stopColor="#FBCFE8" />
+            </linearGradient>
+          </defs>
+        </svg>
 
         {/* Section with Hero Visualization */}
         <section className="pt-16 md:pt-44 mb-16 md:mb-24">
@@ -132,7 +136,7 @@ export default function Home() {
 
             <div className="grid items-center gap-10 md:grid-cols-2">
               <div className="space-y-6">
-                <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
+                <h1 className="text-4xl md:text-6xl leading-tight">
                   Agentic AI Radiology - A New Era of Optimized Workflow
                 </h1>
                 <p className="text-white/70 max-w-xl">
@@ -162,58 +166,55 @@ export default function Home() {
         </section>
 
         {/* How it works */}
-        <section id="how" className="py-24 border-t border-white/10">
+        <section id="how" className="pt-24 border-t border-white/10">
           <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-3">
             <div className="md:col-span-1">
               <h2 className="text-xl font-semibold mb-3">Why Radiology 2.0?</h2>
-              <p className="text-white/70 text-sm">
-                UltraRad (foundation model) and UltraViewer (next‑gen viewer)
-                combine into Radiology 2.0 — an assistive, agentic workflow
-                layer that automates radiologist tasks end‑to‑end.
-              </p>
             </div>
             <div className="md:col-span-2">
               <ul className="grid gap-6">
-                <li className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex gap-4">
-                  <span className="h-3 w-3 mt-1.5 rounded-full bg-gradient-to-tr from-violet-400 to-fuchsia-500 shadow" />
-                  <p className="text-white/80 text-sm">
-                    A fragmented radiology workflow is the key bottleneck —
-                    driving radiologist burnout, prolonging patient wait times,
-                    increasing misdiagnosis rates, and limiting revenue
-                    potential.
-                  </p>
+                <li className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 flex gap-4">
+                  <span className="h-3 w-3 mt-1.5 rounded-full " />
+                  <div>
+                    <h3 className="font-medium bg-gradient-to-r from-violet-400 to-white bg-clip-text text-transparent">
+                      End-to-end solution:
+                    </h3>
+                    <p className="text-white/80 text-sm">
+                      Maximum automation to address fragmented radiology
+                      workflows that drive radiologist burnout, prolong patient
+                      wait times, increase misdiagnosis rates, and limit revenue
+                      potential.
+                    </p>
+                  </div>
                 </li>
                 <li className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex gap-4">
-                  <span className="h-3 w-3 mt-1.5 rounded-full bg-gradient-to-tr from-violet-400 to-fuchsia-500 shadow" />
-                  <p className="text-white/80 text-sm">
-                    <span className="text-white">
-                      Extremely accurate and robust
-                    </span>
-                    : trained on the most heterogeneous multimodal dataset of
-                    billions of images.
-                  </p>
+                  <span className="h-3 w-3 mt-1.5 rounded-full " />
+                  <div>
+                    <h3 className="font-medium bg-gradient-to-r from-violet-400 to-white bg-clip-text text-transparent">
+                      Extremely accurate and robust AI:
+                    </h3>
+                    <p className="text-white/80 text-sm">
+                      An AI solution trained on the most heterogeneous,
+                      multimodal dataset containing billions of images.
+                    </p>
+                  </div>
                 </li>
                 <li className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex gap-4">
-                  <span className="h-3 w-3 mt-1.5 rounded-full bg-gradient-to-tr from-violet-400 to-fuchsia-500 shadow" />
-                  <p className="text-white/80 text-sm">
-                    <span className="text-white">
-                      AI that reasons like a radiologist
-                    </span>
-                    — built for explainability, uncertainty awareness, and safe
-                    assistance.
-                  </p>
+                  <span className="h-3 w-3 mt-1.5 rounded-full " />
+                  <div>
+                    <h3 className="font-medium bg-gradient-to-r from-violet-400 to-white bg-clip-text text-transparent">
+                      Explainable AI:
+                    </h3>
+                    <p className="text-white/80 text-sm">
+                      AI that reasons like a radiologist.
+                    </p>
+                  </div>
                 </li>
               </ul>
             </div>
           </div>
-        </section>
 
-        {/* Outcomes */}
-        <section id="value" className="py-24 border-t border-white/10">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex items-end justify-between gap-6 mb-8">
-              <h2 className="text-xl font-semibold">Outcomes</h2>
-            </div>
+          <div className="mx-auto max-w-7xl px-6 pt-6">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
@@ -246,38 +247,45 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How it works */}
-        <section id="how" className="py-24 border-t border-white/10">
-          <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-3">
-            <div className="md:col-span-1">
-              <h2 className="text-xl font-semibold mb-3">How it works</h2>
-              <p className="text-white/70 text-sm">
-                UltraRad (foundation model) and UltraViewer (next‑gen viewer)
-                combine into Radiology 2.0 — an assistive, agentic workflow
-                layer that automates radiologist tasks end‑to‑end.
-              </p>
-            </div>
-            <div className="md:col-span-2 grid gap-6">
+        <section id="how" className="pt-6 pb-24 border-b border-white/10">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="grid gap-6 md:grid-cols-3">
               {[
                 {
                   title: "UltraRad — Radiology AI Foundation Model",
                   desc: "Assists anatomy segmentation, on‑click pathology segmentation, Image quality control, and structured report drafting. Built for explainability and modular indications.",
+                  Icon: Waypoints,
                 },
                 {
                   title: "UltraViewer — Next‑gen AI Image Viewer",
                   desc: "AR‑ready viewing with embedded AI assistance for analysis, summarization, and PACS/EHR integrity.",
+                  Icon: Monitor,
                 },
                 {
                   title: "Radiology 2.0 — AI‑native OS",
                   desc: "Combines UltraRad + UltraViewer into an agentic layer to streamline intake → reading → reporting.",
+                  Icon: AppWindowMac,
                 },
-              ].map((item) => (
+              ].map(({ title, desc, Icon }) => (
                 <div
-                  key={item.title}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6"
+                  key={title}
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8"
                 >
-                  <h3 className="font-medium mb-2">{item.title}</h3>
-                  <p className="text-white/70 text-sm">{item.desc}</p>
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_60%_at_50%_-20%,rgba(168,85,247,0.18),rgba(0,0,0,0)_60%)]"
+                  />
+                  <div className="relative">
+                    <span className="mb-4 inline-block">
+                      <Icon className="h-6 w-6 icon-gradient-stroke" />
+                    </span>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2">
+                      {title}
+                    </h3>
+                    <p className="text-white/70 text-sm leading-relaxed">
+                      {desc}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -428,7 +436,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="mx-auto max-w-7xl px-6 mt-12 pt-12 border-t border-white/10">
+          <div className="mx-auto max-w-7xl px-6 mt-12 pt-6">
             <div className="relative overflow-hidden">
               <div aria-hidden className="absolute inset-0 -z-10" />
               <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0b0b0c] to-transparent" />
