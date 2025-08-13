@@ -65,7 +65,7 @@ export default function VantaFog(): React.JSX.Element {
   return (
     <div
       ref={vantaRef}
-      className="absolute inset-0 pointer-events-auto"
+      className="absolute inset-0 pointer-events-auto rounded-2xl overflow-hidden"
       style={{ touchAction: "none" }}
     />
   );
