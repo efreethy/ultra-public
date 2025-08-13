@@ -1,5 +1,5 @@
 // homepage
-import BrainModel from "../components/BrainModel";
+import HeroVisualization from "../components/HeroVisualization";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 
@@ -65,14 +65,18 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0b0b0c] text-white">
+    <div className="min-h-screen bg-[#0b0b0c] text-white overflow-x-hidden">
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/30 border-b border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-7 w-7 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-indigo-500" />
-            <span className="text-sm font-semibold tracking-wide">
-              Ultra AI
-            </span>
+            <Image
+              src="/ultra-white-transparent.png"
+              alt="Ultra AI logo"
+              width={120}
+              height={32}
+              className="h-7 w-auto"
+              priority
+            />
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
             <a href="#value" className="hover:text-white">
@@ -98,10 +102,10 @@ export default function Home() {
             </a>
           </nav>
           <a
-            href="#demo"
-            className="inline-flex items-center rounded-full bg-white text-black text-sm font-medium px-4 py-2 hover:bg-white/90"
+            href="#contact"
+            className="inline-flex items-center rounded-full bg-black text-white text-sm font-medium px-4 py-2 border border-purple-500/60 shadow-[0_0_20px_rgba(168,85,247,0.35)] hover:shadow-[0_0_28px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
           >
-            Book a Demo
+            Contact Us
           </a>
         </div>
       </header>
@@ -119,7 +123,7 @@ export default function Home() {
             <div className="relative md:hidden -mx-6 mb-6">
               <div className="h-64 w-full overflow-hidden">
                 <div className="absolute inset-0">
-                  <BrainModel />
+                  <HeroVisualization />
                 </div>
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
               </div>
@@ -131,25 +135,18 @@ export default function Home() {
                   Radiology 2.0
                 </p>
                 <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
-                  The AI‑native operating system for radiology
+                  Agentic AI Radiology - A New Era of Optimized Workflow
                 </h1>
                 <p className="text-white/70 max-w-xl">
-                  UltraRad + UltraViewer automate radiologist tasks end‑to‑end —
-                  assisting segmentation, QC, and report drafting to reduce time
-                  per case and expand capacity.
+                  Everything in One End-to-End Solution, from Image Quality
+                  Control to Diagnosis and Report Generation
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex">
                   <a
-                    href="#demo"
-                    className="inline-flex items-center justify-center rounded-full bg-white text-black text-sm font-medium px-5 py-3 hover:bg-white/90"
+                    href="#how"
+                    className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
                   >
-                    Book a Demo
-                  </a>
-                  <a
-                    href="#value"
-                    className="inline-flex items-center justify-center rounded-full border border-white/20 text-white text-sm font-medium px-5 py-3 hover:bg-white/5"
-                  >
-                    See outcomes
+                    Why Is Radiology 2.0 The Future of Radiology?
                   </a>
                 </div>
               </div>
@@ -157,21 +154,65 @@ export default function Home() {
               <div className="relative aspect-[4/3] w-full rounded-2xl ring-1 ring-white/10 overflow-hidden hidden md:block">
                 <div className="absolute inset-0 pointer-events-none rounded-2xl bg-gradient-to-tr from-cyan-400/10 via-fuchsia-500/10 to-indigo-500/10" />
                 <div className="absolute inset-0">
-                  <BrainModel />
+                  <HeroVisualization />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* How it works */}
+        <section id="how" className="py-24 border-t border-white/10">
+          <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-3">
+            <div className="md:col-span-1">
+              <h2 className="text-xl font-semibold mb-3">Why Radiology 2.0?</h2>
+              <p className="text-white/70 text-sm">
+                UltraRad (foundation model) and UltraViewer (next‑gen viewer)
+                combine into Radiology 2.0 — an assistive, agentic workflow
+                layer that automates radiologist tasks end‑to‑end.
+              </p>
+            </div>
+            <div className="md:col-span-2">
+              <ul className="grid gap-6">
+                <li className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex gap-4">
+                  <span className="h-3 w-3 mt-1.5 rounded-full bg-gradient-to-tr from-violet-400 to-fuchsia-500 shadow" />
+                  <p className="text-white/80 text-sm">
+                    A fragmented radiology workflow is the key bottleneck —
+                    driving radiologist burnout, prolonging patient wait times,
+                    increasing misdiagnosis rates, and limiting revenue
+                    potential.
+                  </p>
+                </li>
+                <li className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex gap-4">
+                  <span className="h-3 w-3 mt-1.5 rounded-full bg-gradient-to-tr from-violet-400 to-fuchsia-500 shadow" />
+                  <p className="text-white/80 text-sm">
+                    <span className="text-white">
+                      Extremely accurate and robust
+                    </span>
+                    : trained on the most heterogeneous multimodal dataset of
+                    billions of images.
+                  </p>
+                </li>
+                <li className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex gap-4">
+                  <span className="h-3 w-3 mt-1.5 rounded-full bg-gradient-to-tr from-violet-400 to-fuchsia-500 shadow" />
+                  <p className="text-white/80 text-sm">
+                    <span className="text-white">
+                      AI that reasons like a radiologist
+                    </span>
+                    — built for explainability, uncertainty awareness, and safe
+                    assistance.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Outcomes */}
-        <section id="value" className="py-24">
+        <section id="value" className="py-24 border-t border-white/10">
           <div className="mx-auto max-w-7xl px-6">
             <div className="flex items-end justify-between gap-6 mb-8">
               <h2 className="text-xl font-semibold">Outcomes</h2>
-              <a href="#roi" className="text-sm text-white/70 hover:text-white">
-                Estimate your ROI →
-              </a>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
@@ -183,17 +224,13 @@ export default function Home() {
                 {
                   stat: "+20%",
                   label: "Productivity",
-                  note: "Throughput uplift in modeled scenarios",
+                  note: "Throughput uplift",
                 },
-                {
-                  stat: "4×",
-                  label: "ROI for centers",
-                  note: "Based on conservative assumptions",
-                },
+
                 {
                   stat: "15%",
-                  label: "Fewer errors",
-                  note: "Aiming to reduce inconsistencies",
+                  label: "Fewer misdiagnoses",
+                  note: "Improving diagnostic accuracy",
                 },
               ].map((item) => (
                 <div
@@ -223,8 +260,8 @@ export default function Home() {
             <div className="md:col-span-2 grid gap-6">
               {[
                 {
-                  title: "UltraRad — Radiology Foundation Model",
-                  desc: "Assists anatomy segmentation, on‑click pathology segmentation, image QC, and structured report drafting. Built for explainability and modular indications.",
+                  title: "UltraRad — Radiology AI Foundation Model",
+                  desc: "Assists anatomy segmentation, on‑click pathology segmentation, Image quality control, and structured report drafting. Built for explainability and modular indications.",
                 },
                 {
                   title: "UltraViewer — Next‑gen AI Image Viewer",
@@ -252,7 +289,7 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-2">
             <div>
               <h2 className="text-xl font-semibold mb-3">
-                For independent and multi‑branch centers
+                For Radiology Centers
               </h2>
               <ul className="text-white/70 text-sm space-y-2 list-disc pl-5">
                 <li>
@@ -274,32 +311,14 @@ export default function Home() {
             </div>
             <div
               id="roi"
-              className="rounded-2xl border border-white/10 bg-white/[0.02] p-6"
+              className="md:border-l md:border-white/10 md:pl-10 flex items-center justify-center"
             >
-              <h3 className="font-medium mb-2">ROI snapshot</h3>
-              <p className="text-white/70 text-sm">
-                Assuming $1,000/exam and +20% productivity, a single site may
-                unlock meaningful incremental revenue. Enter your volume to
-                estimate.
-              </p>
-              <form className="mt-4 grid sm:grid-cols-3 gap-3">
-                <div className="sm:col-span-2">
-                  <input
-                    aria-label="Monthly exams"
-                    placeholder="Monthly exams"
-                    className="w-full rounded-lg bg-white/[0.06] border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-white/20"
-                  />
-                </div>
-                <button
-                  type="button"
-                  className="rounded-lg bg-white text-black text-sm font-medium px-4 py-2 hover:bg-white/90"
-                >
-                  Estimate
-                </button>
-              </form>
-              <div className="mt-3 text-xs text-white/50">
-                Illustrative only; results vary by case mix and configuration.
-              </div>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
+              >
+                Get in touch with us
+              </a>
             </div>
           </div>
         </section>
@@ -324,111 +343,49 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-              <h3 className="font-medium mb-2">Integration readiness</h3>
-              <p className="text-white/70 text-sm">
-                Standards‑based interfaces and reference implementations to
-                shorten time‑to‑value. Talk to partnerships for details.
-              </p>
+            <div className="md:border-l md:border-white/10 md:pl-10 flex items-center justify-center">
               <a
                 href="#contact"
-                className="inline-block mt-4 rounded-full border border-white/20 text-white text-sm font-medium px-5 py-3 hover:bg-white/5"
+                className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
               >
-                Contact partnerships
+                Get in touch with us
               </a>
             </div>
           </div>
         </section>
 
-        {/* Regulatory */}
-        <section id="regulatory" className="py-24">
+        <section id="company" className="py-24 border-t border-white/10">
           <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-2">
             <div>
-              <h2 className="text-xl font-semibold mb-3">
-                Built for FDA pathways
-              </h2>
-              <p className="text-white/70 text-sm">
-                Limited intended uses focused on radiologist tasks (image QC,
-                detection assistance, report drafting assistance). Explainable
-                outputs and proprietary data generation support scalable
-                validation. Modular strategy and targeted submissions (Neuro →
-                Pediatrics).
+              <h2 className="text-xl font-semibold mb-4">Leadership</h2>
+              <p className="text-white/70">
+                Ultra AI is led by a radiologist and an AI engineer. We build an
+                AI‑native operating system for radiology with a capital‑light
+                model, strong ecosystem partnerships, and a design aligned with
+                regulatory pathways.
               </p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-white/60 text-xs">
-              Clinical features are made available in accordance with local
-              regulatory status and intended use. Certain capabilities are
-              pending regulatory clearance.
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                ["2024", "Incorporated"],
+                ["5", "Patents filed"],
+                ["HIPAA", "Aligned"],
+                ["SOC 2", "In progress"],
+              ].map(([stat, label]) => (
+                <div
+                  key={label}
+                  className="rounded-xl bg-white/[0.03] border border-white/10 p-4"
+                >
+                  <div className="text-2xl font-semibold">{stat}</div>
+                  <div className="text-white/60 text-xs mt-1">{label}</div>
+                </div>
+              ))}
             </div>
           </div>
-        </section>
-
-        {/* Partner logos (react-fast-marquee) */}
-        <section className="py-16 border-t border-white/10">
-          <div className="mx-auto max-w-7xl px-6"></div>
-          <div className="relative overflow-hidden">
-            {/* light background wash behind the marquee */}
-            <div aria-hidden className="absolute inset-0 -z-10" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0b0b0c] to-transparent" />
-            <Marquee
-              direction="left"
-              speed={28}
-              pauseOnHover
-              gradient
-              gradientColor="rgba(11,11,12,1)"
-              gradientWidth={80}
-              className="py-6"
-            >
-              {partnerLogos.map((src, idx) => {
-                // Avoid double-gap at loop seam: use consistent right margin
-                const marginClass = idx === 0 ? "mr-20" : "mr-20";
-                const isEmphasized =
-                  src === "insel.png" || src === "stryker.png";
-
-                // Fixed-height containers with proportional widths
-                const heightClass = isEmphasized
-                  ? "h-[62px] md:h-[72px]"
-                  : "h-10 md:h-12";
-                const widthClass = isEmphasized
-                  ? "w-[208px] md:w-[260px]"
-                  : "w-[160px] md:w-[200px]";
-
-                const sizesAttr = isEmphasized
-                  ? "(min-width: 768px) 260px, 208px"
-                  : "(min-width: 768px) 200px, 160px";
-
-                return (
-                  <div
-                    key={`rfm-${idx}-${src}`}
-                    className={`${marginClass} ${heightClass} ${widthClass} relative opacity-80 hover:opacity-100 transition-opacity align-middle`}
-                  >
-                    <Image
-                      src={`/${src}`}
-                      alt={src}
-                      fill
-                      sizes={sizesAttr}
-                      className="object-contain"
-                      priority={false}
-                    />
-                  </div>
-                );
-              })}
-            </Marquee>
-          </div>
-        </section>
-
-        {/* Team */}
-        <section id="team" className="py-24 border-t border-white/10">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex items-end justify-between gap-6 mb-8">
-              <h2 className="text-xl font-semibold">Team</h2>
-              <a
-                href="#company"
-                className="text-sm text-white/70 hover:text-white"
-              >
-                About the company →
-              </a>
-            </div>
+          <div
+            id="team"
+            className="mx-auto max-w-7xl px-6 mt-12 pt-12 border-t border-white/10"
+          >
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {teamMembers.map((member) => (
                 <div
@@ -474,34 +431,48 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
-
-        <section id="company" className="py-24 border-t border-white/10">
-          <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-2">
-            <div>
-              <h2 className="text-xl font-semibold mb-4">Company</h2>
-              <p className="text-white/70">
-                Ultra AI is led by a radiologist and an AI engineer. We build an
-                AI‑native operating system for radiology with a capital‑light
-                model, strong ecosystem partnerships, and a design aligned with
-                regulatory pathways.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                ["2024", "Incorporated"],
-                ["5", "Patents filed"],
-                ["HIPAA", "Aligned"],
-                ["SOC 2", "In progress"],
-              ].map(([stat, label]) => (
-                <div
-                  key={label}
-                  className="rounded-xl bg-white/[0.03] border border-white/10 p-4"
-                >
-                  <div className="text-2xl font-semibold">{stat}</div>
-                  <div className="text-white/60 text-xs mt-1">{label}</div>
-                </div>
-              ))}
+          <div className="mx-auto max-w-7xl px-6 mt-12 pt-12 border-t border-white/10">
+            <div className="relative overflow-hidden">
+              <div aria-hidden className="absolute inset-0 -z-10" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0b0b0c] to-transparent" />
+              <Marquee
+                direction="left"
+                speed={28}
+                gradient
+                gradientColor="rgba(11,11,12,1)"
+                gradientWidth={80}
+                className="py-6"
+              >
+                {partnerLogos.map((src, idx) => {
+                  const marginClass = idx === 0 ? "mr-20" : "mr-20";
+                  const isEmphasized =
+                    src === "insel.png" || src === "stryker.png";
+                  const heightClass = isEmphasized
+                    ? "h-[62px] md:h-[72px]"
+                    : "h-10 md:h-12";
+                  const widthClass = isEmphasized
+                    ? "w-[208px] md:w-[260px]"
+                    : "w-[160px] md:w-[200px]";
+                  const sizesAttr = isEmphasized
+                    ? "(min-width: 768px) 260px, 208px"
+                    : "(min-width: 768px) 200px, 160px";
+                  return (
+                    <div
+                      key={`rfm-${idx}-${src}`}
+                      className={`${marginClass} ${heightClass} ${widthClass} relative opacity-80 hover:opacity-100 transition-opacity align-middle`}
+                    >
+                      <Image
+                        src={`/${src}`}
+                        alt={src}
+                        fill
+                        sizes={sizesAttr}
+                        className="object-contain"
+                        priority={false}
+                      />
+                    </div>
+                  );
+                })}
+              </Marquee>
             </div>
           </div>
         </section>
@@ -570,10 +541,13 @@ export default function Home() {
       <footer className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="h-6 w-6 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-indigo-500" />
-            <span className="text-sm font-semibold tracking-wide">
-              Ultra AI
-            </span>
+            <Image
+              src="/ultra-white-transparent.png"
+              alt="Ultra AI logo"
+              width={110}
+              height={30}
+              className="h-6 w-auto"
+            />
           </div>
           <p className="text-xs text-white/60">
             © 2024 Ultra AI ® All Rights Reserved
