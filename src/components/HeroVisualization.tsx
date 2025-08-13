@@ -8,21 +8,52 @@ import VantaClouds from "./visuals/VantaClouds";
 import SplineViewer from "./visuals/SplineViewer";
 
 type VisualMode = {
-  key: "cells" | "trunk" | "fog" | "clouds" | "spline";
-  Component: React.ComponentType;
+  key:
+    | "cells"
+    | "trunk"
+    | "fog"
+    | "clouds"
+    | "spline"
+    | "spline2"
+    | "spline3"
+    | "spline4";
+  render: () => React.JSX.Element;
 };
 
 const visualModes: readonly VisualMode[] = [
-  { key: "spline", Component: SplineViewer },
-  { key: "fog", Component: VantaFog },
-  { key: "cells", Component: VantaCells },
-  { key: "trunk", Component: VantaTrunk },
-  { key: "clouds", Component: VantaClouds },
+  {
+    key: "spline",
+    render: () => (
+      <SplineViewer url="https://prod.spline.design/hBACOet4chGONve2/scene.splinecode" />
+    ),
+  },
+  {
+    key: "spline2",
+    render: () => (
+      <SplineViewer url="https://prod.spline.design/r3liXaN23OlK9eA1/scene.splinecode" />
+    ),
+  },
+  {
+    key: "spline3",
+    render: () => (
+      <SplineViewer url="https://prod.spline.design/r3liXaN23OlK9eA1/scene.splinecode" />
+    ),
+  },
+  {
+    key: "spline4",
+    render: () => (
+      <SplineViewer url="https://prod.spline.design/r3liXaN23OlK9eA1/scene.splinecode" />
+    ),
+  },
+  { key: "fog", render: () => <VantaFog /> },
+  { key: "cells", render: () => <VantaCells /> },
+  { key: "trunk", render: () => <VantaTrunk /> },
+  { key: "clouds", render: () => <VantaClouds /> },
 ] as const;
 
 export default function HeroVisualization(): React.JSX.Element {
   const [modeIndex, setModeIndex] = useState(0);
-  const ModeComponent = visualModes[modeIndex].Component;
+  const { render } = visualModes[modeIndex];
 
   const goPrev = () =>
     setModeIndex((i) => (i - 1 + visualModes.length) % visualModes.length);
@@ -30,7 +61,7 @@ export default function HeroVisualization(): React.JSX.Element {
 
   return (
     <div className="h-full w-full relative">
-      <ModeComponent />
+      {render()}
 
       <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-2 md:px-3">
         <button
