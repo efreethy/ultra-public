@@ -277,7 +277,11 @@ export default function Home() {
                   />
                   <div className="relative">
                     <span className="mb-4 inline-block">
-                      <Icon className="h-6 w-6 icon-gradient-stroke" />
+                      <Icon
+                        className="h-6 w-6"
+                        stroke="url(#ultraIconGradient)"
+                        fill="none"
+                      />
                     </span>
                     <h3 className="text-lg md:text-xl font-semibold mb-2">
                       {title}
