@@ -117,7 +117,8 @@ export default function Home() {
           className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[600px] w-[1200px] bg-[radial-gradient(closest-side,rgba(56,189,248,.25),transparent_70%)]"
         />
 
-        <section className="pt-16 md:pt-44">
+        {/* Section with Hero Visualization */}
+        <section className="pt-16 md:pt-44 mb-16 md:mb-24">
           <div className="mx-auto max-w-7xl px-6">
             {/* Mobile 3D hero visual: full-bleed short background with overlay */}
             <div className="relative md:hidden -mx-6 mb-6">
@@ -285,7 +286,7 @@ export default function Home() {
         </section>
 
         {/* For centers */}
-        <section id="centers" className="py-24">
+        <section id="centers" className="py-24 border-t border-white/10">
           <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-2">
             <div>
               <h2 className="text-xl font-semibold mb-3">
@@ -382,10 +383,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div
-            id="team"
-            className="mx-auto max-w-7xl px-6 mt-12 pt-12 border-t border-white/10"
-          >
+          <div id="team" className="mx-auto max-w-7xl px-6 mt-12 pt-6">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {teamMembers.map((member) => (
                 <div
