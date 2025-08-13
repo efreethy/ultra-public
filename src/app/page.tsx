@@ -152,8 +152,10 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative aspect-[4/3] w-full rounded-2xl ring-1 ring-white/10 overflow-hidden hidden md:block">
-                <div className="absolute inset-0 pointer-events-none rounded-2xl bg-gradient-to-tr from-cyan-400/10 via-fuchsia-500/10 to-indigo-500/10" />
+              <div className="relative aspect-[4/3] w-full overflow-hidden hidden md:block">
+                {/* <div className="absolute inset-0 pointer-events-none rounded-2xl bg-gradient-to-tr from-cyan-400/10 via-fuchsia-500/10 to-indigo-500/10" /> */}
+                <div className="absolute inset-0 pointer-events-none rounded-2xl" />
+
                 <div className="absolute inset-0">
                   <HeroVisualization />
                 </div>

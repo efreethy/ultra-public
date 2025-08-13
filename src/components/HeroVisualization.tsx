@@ -5,13 +5,15 @@ import VantaCells from "./visuals/VantaCells";
 import VantaTrunk from "./visuals/VantaTrunk";
 import VantaFog from "./visuals/VantaFog";
 import VantaClouds from "./visuals/VantaClouds";
+import SplineViewer from "./visuals/SplineViewer";
 
 type VisualMode = {
-  key: "cells" | "trunk" | "fog" | "clouds";
+  key: "cells" | "trunk" | "fog" | "clouds" | "spline";
   Component: React.ComponentType;
 };
 
 const visualModes: readonly VisualMode[] = [
+  { key: "spline", Component: SplineViewer },
   { key: "fog", Component: VantaFog },
   { key: "cells", Component: VantaCells },
   { key: "trunk", Component: VantaTrunk },
