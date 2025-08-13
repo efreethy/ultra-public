@@ -12,9 +12,9 @@ type VisualMode = {
 };
 
 const visualModes: readonly VisualMode[] = [
+  { key: "fog", Component: VantaFog },
   { key: "cells", Component: VantaCells },
   { key: "trunk", Component: VantaTrunk },
-  { key: "fog", Component: VantaFog },
   { key: "clouds", Component: VantaClouds },
 ] as const;
 

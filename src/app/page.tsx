@@ -144,7 +144,7 @@ export default function Home() {
                 <div className="flex">
                   <a
                     href="#how"
-                    className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
+                    className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 whitespace-nowrap border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition w-full sm:w-auto text-center"
                   >
                     Why Is Radiology 2.0 The Future of Radiology?
                   </a>
@@ -214,7 +214,7 @@ export default function Home() {
             <div className="flex items-end justify-between gap-6 mb-8">
               <h2 className="text-xl font-semibold">Outcomes</h2>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
                   stat: "−85%",
@@ -315,7 +315,7 @@ export default function Home() {
             >
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
+                className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 whitespace-nowrap border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition min-w-[12rem] text-center"
               >
                 Get in touch with us
               </a>
@@ -346,7 +346,7 @@ export default function Home() {
             <div className="md:border-l md:border-white/10 md:pl-10 flex items-center justify-center">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
+                className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 whitespace-nowrap border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition min-w-[12rem] text-center"
               >
                 Get in touch with us
               </a>
