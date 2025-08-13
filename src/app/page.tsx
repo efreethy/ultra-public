@@ -132,9 +132,6 @@ export default function Home() {
 
             <div className="grid items-center gap-10 md:grid-cols-2">
               <div className="space-y-6">
-                <p className="inline-flex items-center text-xs font-medium uppercase tracking-wider text-white/70">
-                  Radiology 2.0
-                </p>
                 <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
                   Agentic AI Radiology - A New Era of Optimized Workflow
                 </h1>
