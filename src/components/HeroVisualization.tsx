@@ -8,15 +8,8 @@ import VantaClouds from "./visuals/VantaClouds";
 import SplineViewer from "./visuals/SplineViewer";
 
 type VisualMode = {
-  key:
-    | "cells"
-    | "trunk"
-    | "fog"
-    | "clouds"
-    | "spline"
-    | "spline2"
-    | "spline3"
-    | "spline4";
+  key: "cells" | "trunk" | "fog" | "clouds" | "spline" | "spline2" | "spline3";
+  // | "spline4";
   render: () => React.JSX.Element;
 };
 
@@ -36,15 +29,15 @@ const visualModes: readonly VisualMode[] = [
   {
     key: "spline3",
     render: () => (
-      <SplineViewer url="https://prod.spline.design/r3liXaN23OlK9eA1/scene.splinecode" />
+      <SplineViewer url="https://prod.spline.design/e7Tkrslc-V66sEf4/scene.splinecode" />
     ),
   },
-  {
-    key: "spline4",
-    render: () => (
-      <SplineViewer url="https://prod.spline.design/r3liXaN23OlK9eA1/scene.splinecode" />
-    ),
-  },
+  // {
+  //   key: "spline4",
+  //   render: () => (
+  //     <SplineViewer url="https://prod.spline.design/r3liXaN23OlK9eA1/scene.splinecode" />
+  //   ),
+  // },
   { key: "fog", render: () => <VantaFog /> },
   { key: "cells", render: () => <VantaCells /> },
   { key: "trunk", render: () => <VantaTrunk /> },
