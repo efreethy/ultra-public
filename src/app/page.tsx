@@ -110,6 +110,9 @@ export default function Home() {
 
             <div className="grid items-center gap-10 md:grid-cols-2">
               <div className="space-y-6">
+                <div className="inline-flex items-center rounded-full border border-purple-500/60 bg-black/60 px-3 py-1 text-xs text-white/80">
+                  <span>Radiology 2.0</span>
+                </div>
                 <h1 className="text-4xl md:text-6xl leading-tight">
                   Agentic AI Radiology - A New Era of Optimized Workflow
                 </h1>

@@ -89,10 +89,6 @@ export default function NewsPage() {
                 Official announcements, publications, and milestones from Ultra
                 AI.
               </p>
-              <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-purple-500/60 bg-black/60 px-4 py-2 text-sm text-white/80 shadow-[0_0_24px_rgba(168,85,247,0.35)]">
-                <span className="h-2 w-2 rounded-full bg-fuchsia-400 animate-pulse" />
-                <span>Timely updates — built for urgency and impact</span>
-              </div>
             </div>
           </div>
         </section>

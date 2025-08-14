@@ -33,12 +33,6 @@ export default function SplineViewer({
   return (
     <div className="absolute inset-0">
       <SplineElement key={sceneUrl} url={sceneUrl} />
-      <div className="absolute bottom-5 right-5 z-50 pointer-events-none select-none">
-        <div className="inline-flex items-center gap-2 rounded-full bg-black/80 border border-white/10 px-6 py-2.5 text-white text-xs font-medium shadow backdrop-blur">
-          {/* <span className="h-4 w-4 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-indigo-500" /> */}
-          &nbsp; &nbsp; <span>Radiology 2.0</span>&nbsp;&nbsp;
-        </div>
-      </div>
     </div>
   );
 }
