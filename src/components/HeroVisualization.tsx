@@ -56,7 +56,7 @@ export default function HeroVisualization(): React.JSX.Element {
     <div className="h-full w-full relative">
       {render()}
 
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-2 md:px-3">
+      {/* <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-2 md:px-3">
         <button
           type="button"
           aria-label="Previous visualization"
@@ -73,7 +73,7 @@ export default function HeroVisualization(): React.JSX.Element {
         >
           ›
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
