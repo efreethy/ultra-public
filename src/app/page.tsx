@@ -504,7 +504,7 @@ export default function Home() {
           className="absolute inset-0 bg-black/80 pointer-events-none"
         />
         <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-24 pb-28 md:pb-40">
-          {/* Mobile-first layout: logo + accordions */}
+          {/* Mobile-first layout: logo + visible link sections (no accordions) */}
           <div className="md:hidden">
             <div className="space-y-4 flex flex-col items-center text-center">
               <Image
@@ -519,76 +519,58 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-8 divide-y divide-white/10 rounded-xl overflow-hidden border border-white/10 bg-white/[0.02]">
-              <details className="group">
-                <summary className="list-none px-4 py-3 flex items-center justify-between cursor-pointer select-none">
-                  <span className="text-xs font-semibold tracking-wider uppercase text-white/80">
-                    Solutions
-                  </span>
-                  <span className="text-white/60 group-open:rotate-180 transition">
-                    ⌄
-                  </span>
-                </summary>
-                <ul className="px-4 pb-3 text-sm text-white/70 space-y-1">
+            <div className="mt-8 grid grid-cols-1 gap-8">
+              <div>
+                <h4 className="text-xs font-semibold tracking-wider uppercase text-white/80 mb-3">
+                  Solutions
+                </h4>
+                <ul className="space-y-2 text-sm text-white/70">
                   <li>
-                    <a href="#how" className="block py-2 hover:text-white">
+                    <a href="#how" className="hover:text-white">
                       Overview
                     </a>
                   </li>
                   <li>
-                    <a href="#centers" className="block py-2 hover:text-white">
+                    <a href="#centers" className="hover:text-white">
                       For Centers
                     </a>
                   </li>
                   <li>
-                    <a href="#oems" className="block py-2 hover:text-white">
+                    <a href="#oems" className="hover:text-white">
                       For OEMs
                     </a>
                   </li>
                 </ul>
-              </details>
-              <details className="group">
-                <summary className="list-none px-4 py-3 flex items-center justify-between cursor-pointer select-none">
-                  <span className="text-xs font-semibold tracking-wider uppercase text-white/80">
-                    People
-                  </span>
-                  <span className="text-white/60 group-open:rotate-180 transition">
-                    ⌄
-                  </span>
-                </summary>
-                <ul className="px-4 pb-3 text-sm text-white/70 space-y-1">
+              </div>
+              <div>
+                <h4 className="text-xs font-semibold tracking-wider uppercase text-white/80 mb-3">
+                  People
+                </h4>
+                <ul className="space-y-2 text-sm text-white/70">
                   <li>
-                    <a href="#company" className="block py-2 hover:text-white">
+                    <a href="#company" className="hover:text-white">
                       Company
                     </a>
                   </li>
                 </ul>
-              </details>
-              <details className="group">
-                <summary className="list-none px-4 py-3 flex items-center justify-between cursor-pointer select-none">
-                  <span className="text-xs font-semibold tracking-wider uppercase text-white/80">
-                    Company
-                  </span>
-                  <span className="text-white/60 group-open:rotate-180 transition">
-                    ⌄
-                  </span>
-                </summary>
-                <ul className="px-4 pb-3 text-sm text-white/70 space-y-1">
+              </div>
+              <div>
+                <h4 className="text-xs font-semibold tracking-wider uppercase text-white/80 mb-3">
+                  Company
+                </h4>
+                <ul className="space-y-2 text-sm text-white/70">
                   <li>
-                    <Link href="/news" className="block py-2 hover:text-white">
+                    <Link href="/news" className="hover:text-white">
                       News
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/contact"
-                      className="block py-2 hover:text-white"
-                    >
+                    <Link href="/contact" className="hover:text-white">
                       Contact
                     </Link>
                   </li>
                 </ul>
-              </details>
+              </div>
             </div>
           </div>
 
