@@ -485,20 +485,95 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/ultra-white-transparent.png"
-              alt="Ultra AI logo"
-              width={110}
-              height={30}
-              className="h-6 w-auto"
-            />
+      <footer className="relative border-t border-white/10 overflow-hidden">
+        <div aria-hidden className="absolute inset-0 pointer-events-none">
+          <Image
+            src="/chips-transparent-1696x536.png"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-bottom"
+            priority={false}
+          />
+        </div>
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-black/80 pointer-events-none"
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-16 md:py-24 pb-32 md:pb-40">
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+            <div className="space-y-4">
+              <Image
+                src="/ultra-white-transparent.png"
+                alt="Ultra AI logo"
+                width={140}
+                height={36}
+                className="h-8 w-auto"
+              />
+              <p className="text-xs text-white/60">
+                © 2024 Ultra AI ® All Rights Reserved
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-semibold tracking-wider uppercase text-white/80 mb-3">
+                Solutions
+              </h4>
+              <ul className="space-y-2 text-sm text-white/70">
+                <li>
+                  <a href="#how" className="hover:text-white">
+                    Overview
+                  </a>
+                </li>
+                <li>
+                  <a href="#centers" className="hover:text-white">
+                    For Centers
+                  </a>
+                </li>
+                <li>
+                  <a href="#oems" className="hover:text-white">
+                    For OEMs
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-semibold tracking-wider uppercase text-white/80 mb-3">
+                People
+              </h4>
+              <ul className="space-y-2 text-sm text-white/70">
+                <li>
+                  <a href="#company" className="hover:text-white">
+                    Company
+                  </a>
+                </li>
+                <li>
+                  <a href="#team" className="hover:text-white">
+                    Leadership
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-semibold tracking-wider uppercase text-white/80 mb-3">
+                Company
+              </h4>
+              <ul className="space-y-2 text-sm text-white/70">
+                <li>
+                  <Link href="/news" className="hover:text-white">
+                    News
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:text-white">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
-          <p className="text-xs text-white/60">
-            © 2024 Ultra AI ® All Rights Reserved
-          </p>
         </div>
       </footer>
     </div>
