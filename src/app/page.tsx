@@ -1,6 +1,7 @@
 // homepage
 import HeroVisualization from "../components/HeroVisualization";
 import HotkeyContact from "../components/HotkeyContact";
+import Header from "../components/Header";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
@@ -70,40 +71,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0b0b0c] text-white overflow-x-hidden">
       <HotkeyContact />
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/30 border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/ultra-white-transparent.png"
-              alt="Ultra AI logo"
-              width={120}
-              height={32}
-              className="h-7 w-auto"
-              priority
-            />
-          </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
-            <Link href="#how" className="hover:text-white">
-              Solutions
-            </Link>
-            <Link href="#company" className="hover:text-white">
-              People
-            </Link>
-            <Link href="/news" className="hover:text-white">
-              News
-            </Link>
-          </nav>
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-full bg-black text-white text-base font-medium px-6 py-3 border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_36px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
-          >
-            Contact Us{" "}
-            <span className="ml-2 text-white/70 text-sm hidden sm:inline">
-              ⌘D
-            </span>
-          </Link>
-        </div>
-      </header>
+      <Header onHome />
 
       <main className="relative isolate">
         {/* Glow background */}
@@ -331,12 +299,12 @@ export default function Home() {
               id="roi"
               className="md:border-l md:border-white/10 md:pl-10 flex items-center justify-center"
             >
-              <a
+              <Link
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 whitespace-nowrap border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition min-w-[12rem] text-center"
               >
                 Get in touch with us
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -362,12 +330,12 @@ export default function Home() {
               </ul>
             </div>
             <div className="md:border-l md:border-white/10 md:pl-10 flex items-center justify-center">
-              <a
+              <Link
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 whitespace-nowrap border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition min-w-[12rem] text-center"
               >
                 Get in touch with us
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -503,7 +471,7 @@ export default function Home() {
                 end.
               </p>
               <div className="mt-10">
-                <a
+                <Link
                   href="/contact"
                   className="inline-flex items-center justify-center rounded-full bg-black text-white text-base font-medium px-6 md:px-8 py-3 md:py-4 border border-purple-500/60 shadow-[0_0_32px_rgba(168,85,247,0.35)] hover:shadow-[0_0_48px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
                 >
@@ -511,7 +479,7 @@ export default function Home() {
                   <span className="ml-2 text-white/70 text-sm hidden sm:inline">
                     ⌘D
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

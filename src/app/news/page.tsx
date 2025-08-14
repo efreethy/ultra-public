@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "next/link"; // used in inline links below
+import Header from "../../components/Header";
 import { FileText, Award, Rocket } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -67,39 +68,12 @@ function KindIcon({ kind }: { kind: NewsItem["kind"] }) {
 }
 
 export default function NewsPage() {
+  const itemsSorted = [...newsItems].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
   return (
     <div className="min-h-screen bg-[#0b0b0c] text-white overflow-x-hidden">
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/30 border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/ultra-white-transparent.png"
-              alt="Ultra AI logo"
-              width={120}
-              height={32}
-              className="h-7 w-auto"
-              priority
-            />
-          </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
-            <Link href="/#how" className="hover:text-white">
-              Solutions
-            </Link>
-            <Link href="/#company" className="hover:text-white">
-              People
-            </Link>
-            <Link href="/news" aria-current="page" className="text-white">
-              News
-            </Link>
-          </nav>
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-full bg-black text-white text-base font-medium px-6 py-3 border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_36px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
-          >
-            Contact Us
-          </Link>
-        </div>
-      </header>
+      <Header active="news" />
 
       <main className="relative isolate pt-24 md:pt-40">
         <div
@@ -126,7 +100,7 @@ export default function NewsPage() {
         <section className="pb-24">
           <div className="mx-auto max-w-7xl px-6">
             <ol className="relative border-l border-white/10 ml-4 md:ml-6">
-              {newsItems.map((item, idx) => (
+              {itemsSorted.map((item, idx) => (
                 <li key={`${item.date}-${idx}`} className="mb-10 ml-6">
                   <span className="absolute -left-[9px] mt-2 flex h-4 w-4 items-center justify-center rounded-full border border-white/20 bg-white/10">
                     <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-tr from-cyan-400 via-fuchsia-500 to-indigo-500" />

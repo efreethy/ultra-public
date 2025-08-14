@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function HotkeyContact() {
+  const router = useRouter();
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
       const activeElement = document.activeElement as HTMLElement | null;
@@ -17,11 +19,10 @@ export default function HotkeyContact() {
         event.preventDefault();
         event.stopPropagation();
 
-        const contactSection = document.getElementById("contact");
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        } else {
-          window.location.hash = "contact";
+        // Always navigate to the contact page
+        const currentPath = window.location.pathname;
+        if (currentPath !== "/contact") {
+          router.push("/contact");
         }
 
         // Attempt to focus the first field to encourage message writing
