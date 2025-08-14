@@ -1,5 +1,7 @@
 // homepage
 import HeroVisualization from "../components/HeroVisualization";
+import HotkeyContact from "../components/HotkeyContact";
+import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 import { Waypoints, Monitor, AppWindowMac } from "lucide-react";
@@ -67,6 +69,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#0b0b0c] text-white overflow-x-hidden">
+      <HotkeyContact />
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/30 border-b border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -80,22 +83,25 @@ export default function Home() {
             />
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
-            <a href="#how" className="hover:text-white">
+            <Link href="#how" className="hover:text-white">
               Solutions
-            </a>
-            <a href="#company" className="hover:text-white">
+            </Link>
+            <Link href="#company" className="hover:text-white">
               People
-            </a>
-            <a href="#news" className="hover:text-white">
+            </Link>
+            <Link href="/news" className="hover:text-white">
               News
-            </a>
+            </Link>
           </nav>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-flex items-center rounded-full bg-black text-white text-base font-medium px-6 py-3 border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_36px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
           >
-            Contact Us
-          </a>
+            Contact Us{" "}
+            <span className="ml-2 text-white/70 text-sm hidden sm:inline">
+              ⌘D
+            </span>
+          </Link>
         </div>
       </header>
 
@@ -326,7 +332,7 @@ export default function Home() {
               className="md:border-l md:border-white/10 md:pl-10 flex items-center justify-center"
             >
               <a
-                href="#contact"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 whitespace-nowrap border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition min-w-[12rem] text-center"
               >
                 Get in touch with us
@@ -357,7 +363,7 @@ export default function Home() {
             </div>
             <div className="md:border-l md:border-white/10 md:pl-10 flex items-center justify-center">
               <a
-                href="#contact"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 whitespace-nowrap border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition min-w-[12rem] text-center"
               >
                 Get in touch with us
@@ -486,63 +492,28 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="py-24 border-t border-white/10">
-          <div className="mx-auto max-w-3xl px-6">
-            <h2 className="text-xl font-semibold mb-6">Contact</h2>
-            <form action="/api/contact" method="post" className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    className="block text-xs text-white/70 mb-1"
-                    htmlFor="name"
-                  >
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    required
-                    className="w-full rounded-lg bg-white/[0.06] border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-white/20"
-                  />
-                </div>
-                <div>
-                  <label
-                    className="block text-xs text-white/70 mb-1"
-                    htmlFor="email"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    className="w-full rounded-lg bg-white/[0.06] border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-white/20"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  className="block text-xs text-white/70 mb-1"
-                  htmlFor="message"
+        <section className="py-24 border-t border-white/10">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="relative overflow-hidden rounded-3xl ring-1 ring-white/10 bg-[radial-gradient(140%_120%_at_50%_-20%,rgba(168,85,247,0.18),rgba(0,0,0,0)_60%)] p-10 md:p-20 text-center">
+              <h2 className="text-3xl md:text-6xl leading-tight">
+                Your radiology workflow, on autopilot
+              </h2>
+              <p className="text-white/70 mt-6 text-base md:text-lg">
+                Free radiologists from busywork with agentic automation, end to
+                end.
+              </p>
+              <div className="mt-10">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-black text-white text-base font-medium px-6 md:px-8 py-3 md:py-4 border border-purple-500/60 shadow-[0_0_32px_rgba(168,85,247,0.35)] hover:shadow-[0_0_48px_rgba(168,85,247,0.5)] hover:border-purple-400 transition"
                 >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  required
-                  className="w-full rounded-lg bg-white/[0.06] border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-white/20"
-                />
+                  Contact Us{" "}
+                  <span className="ml-2 text-white/70 text-sm hidden sm:inline">
+                    ⌘D
+                  </span>
+                </a>
               </div>
-              <button
-                type="submit"
-                className="inline-flex items-center rounded-full bg-white text-black text-sm font-medium px-5 py-3 hover:bg-white/90"
-              >
-                Send message
-              </button>
-            </form>
+            </div>
           </div>
         </section>
       </main>
