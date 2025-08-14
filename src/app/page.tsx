@@ -614,22 +614,14 @@ export default function Home() {
 
             <div>
               <h4 className="text-xs font-semibold tracking-wider uppercase text-white/80 mb-3">
-                People
+                Company
               </h4>
               <ul className="space-y-2 text-sm text-white/70">
                 <li>
                   <a href="#company" className="hover:text-white">
-                    Company
+                    People
                   </a>
                 </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-xs font-semibold tracking-wider uppercase text-white/80 mb-3">
-                Company
-              </h4>
-              <ul className="space-y-2 text-sm text-white/70">
                 <li>
                   <Link href="/news" className="hover:text-white">
                     News
