@@ -113,17 +113,17 @@ export default function Home() {
                 <div className="inline-flex items-center rounded-full border border-purple-500/60 bg-black/60 px-3 py-1 text-xs text-white/80">
                   <span>Radiology 2.0</span>
                 </div>
-                <h1 className="text-4xl md:text-6xl leading-tight">
+                <h1 className="text-4xl md:text-6xl leading-tight break-words">
                   Agentic AI Radiology - A New Era of Optimized Workflow
                 </h1>
                 <p className="text-white/70 max-w-xl">
                   Everything in One End-to-End Solution, from Image Quality
                   Control to Diagnosis and Report Generation
                 </p>
-                <div className="flex">
+                <div className="flex min-w-0">
                   <a
                     href="#how"
-                    className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 whitespace-nowrap border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition w-full sm:w-auto text-center"
+                    className="inline-flex items-center justify-center rounded-full bg-black text-white text-sm font-medium px-5 py-3 border border-purple-500/60 shadow-[0_0_24px_rgba(168,85,247,0.35)] hover:shadow-[0_0_32px_rgba(168,85,247,0.5)] hover:border-purple-400 transition w-full sm:w-auto text-center sm:whitespace-nowrap"
                   >
                     Why Is Radiology 2.0 The Future of Radiology?
                   </a>
@@ -367,12 +367,15 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div id="team" className="mx-auto max-w-7xl px-6 mt-12 pt-6">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            id="team"
+            className="mx-auto max-w-7xl px-6 mt-12 pt-6 overflow-x-hidden"
+          >
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 min-w-0">
               {teamMembers.map((member) => (
                 <div
                   key={member.name}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center gap-4"
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center gap-4 min-w-0 overflow-hidden"
                 >
                   {member.image ? (
                     <div className="h-16 w-16 relative shrink-0">
@@ -393,7 +396,7 @@ export default function Home() {
                     </div>
                   )}
                   <div className="min-w-0">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 min-w-0">
                       <p className="font-medium truncate">{member.name}</p>
                       {member.linkedin && (
                         <a
@@ -401,7 +404,7 @@ export default function Home() {
                           aria-label={`${member.name} on LinkedIn`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center h-5 w-5 rounded bg-[#0A66C2] text-white text-[10px] font-bold"
+                          className="inline-flex items-center justify-center h-5 w-5 rounded bg-[#0A66C2] text-white text-[10px] font-bold shrink-0"
                         >
                           in
                         </a>
@@ -500,8 +503,97 @@ export default function Home() {
           aria-hidden
           className="absolute inset-0 bg-black/80 pointer-events-none"
         />
-        <div className="relative mx-auto max-w-7xl px-6 py-16 md:py-24 pb-32 md:pb-40">
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-24 pb-28 md:pb-40">
+          {/* Mobile-first layout: logo + accordions */}
+          <div className="md:hidden">
+            <div className="space-y-4 flex flex-col items-center text-center">
+              <Image
+                src="/ultra-white-transparent.png"
+                alt="Ultra AI logo"
+                width={140}
+                height={36}
+                className="h-8 w-auto"
+              />
+              <p className="text-xs text-white/70">
+                © 2024 Ultra AI ® All Rights Reserved
+              </p>
+            </div>
+
+            <div className="mt-8 divide-y divide-white/10 rounded-xl overflow-hidden border border-white/10 bg-white/[0.02]">
+              <details className="group">
+                <summary className="list-none px-4 py-3 flex items-center justify-between cursor-pointer select-none">
+                  <span className="text-xs font-semibold tracking-wider uppercase text-white/80">
+                    Solutions
+                  </span>
+                  <span className="text-white/60 group-open:rotate-180 transition">
+                    ⌄
+                  </span>
+                </summary>
+                <ul className="px-4 pb-3 text-sm text-white/70 space-y-1">
+                  <li>
+                    <a href="#how" className="block py-2 hover:text-white">
+                      Overview
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#centers" className="block py-2 hover:text-white">
+                      For Centers
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#oems" className="block py-2 hover:text-white">
+                      For OEMs
+                    </a>
+                  </li>
+                </ul>
+              </details>
+              <details className="group">
+                <summary className="list-none px-4 py-3 flex items-center justify-between cursor-pointer select-none">
+                  <span className="text-xs font-semibold tracking-wider uppercase text-white/80">
+                    People
+                  </span>
+                  <span className="text-white/60 group-open:rotate-180 transition">
+                    ⌄
+                  </span>
+                </summary>
+                <ul className="px-4 pb-3 text-sm text-white/70 space-y-1">
+                  <li>
+                    <a href="#company" className="block py-2 hover:text-white">
+                      Company
+                    </a>
+                  </li>
+                </ul>
+              </details>
+              <details className="group">
+                <summary className="list-none px-4 py-3 flex items-center justify-between cursor-pointer select-none">
+                  <span className="text-xs font-semibold tracking-wider uppercase text-white/80">
+                    Company
+                  </span>
+                  <span className="text-white/60 group-open:rotate-180 transition">
+                    ⌄
+                  </span>
+                </summary>
+                <ul className="px-4 pb-3 text-sm text-white/70 space-y-1">
+                  <li>
+                    <Link href="/news" className="block py-2 hover:text-white">
+                      News
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/contact"
+                      className="block py-2 hover:text-white"
+                    >
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              </details>
+            </div>
+          </div>
+
+          {/* Desktop/tablet grid */}
+          <div className="hidden md:grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             <div className="space-y-4">
               <Image
                 src="/ultra-white-transparent.png"
