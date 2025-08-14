@@ -254,11 +254,7 @@ export default function Home() {
                   />
                   <div className="relative">
                     <span className="mb-4 inline-block">
-                      <Icon
-                        className="h-6 w-6"
-                        stroke="url(#ultraIconGradient)"
-                        fill="none"
-                      />
+                      <Icon className="h-6 w-6" stroke="#fff" fill="none" />
                     </span>
                     <h3 className="text-lg md:text-xl font-semibold mb-2">
                       {title}
