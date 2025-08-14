@@ -548,11 +548,6 @@ export default function Home() {
                     Company
                   </a>
                 </li>
-                <li>
-                  <a href="#team" className="hover:text-white">
-                    Leadership
-                  </a>
-                </li>
               </ul>
             </div>
 
